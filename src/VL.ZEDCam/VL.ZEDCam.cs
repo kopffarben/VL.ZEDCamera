@@ -3,12 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 
-
 namespace sl
 {
 	public class ZEDCam
 	{
-		ZEDCamera camera;
+		Camera camera;
 		InitParameters initParameters;
 		object grabLock = new object();
 
@@ -22,7 +21,7 @@ namespace sl
 			get => running;
 		}
 
-		List<ZEDMat> mats;
+		List<Mat> mats;
 		int matIndex;
 
 		private RuntimeParameters runtimeParameters;
@@ -70,9 +69,9 @@ namespace sl
 
 		public ZEDCam(InitParameters parameters = null, string svoPath = null)
 		{
-			camera = new ZEDCamera();
+			
             
-            mats = new List<ZEDMat>();
+            mats = new List<Mat>();
 
 			if (parameters == null)
 			{
@@ -82,7 +81,7 @@ namespace sl
 				parameters.depthStabilization = true;
 				parameters.enableRightSideMeasure = true; // isStereoRig;
 
-				parameters.coordinateUnit = UNIT.MILLIMETER;
+				parameters.coordinateUnits = UNIT.MILLIMETER;
 				parameters.depthMinimumDistance = 200f;
             }
 
@@ -101,7 +100,7 @@ namespace sl
 			};
 
 			// create the camera
-			camera.CreateCamera(0,true);
+			camera = new Camera(1);
 		}
 
 		public ZEDCam(RESOLUTION resolution, DEPTH_MODE depthMode = DEPTH_MODE.QUALITY, bool stabilisation = true)
@@ -112,20 +111,85 @@ namespace sl
 				depthStabilization = stabilisation,
 				enableRightSideMeasure = true,
 
-				coordinateUnit = UNIT.MILLIMETER,
+				coordinateUnits = UNIT.MILLIMETER,
 				depthMinimumDistance = 200f
 			})
 		{ }
 
-        public ZEDMat RetrieveImage(ZEDMat mat, VIEW view)
+		private Mat CreateViewMaterial(Mat mat, VIEW view)
         {
-            camera.RetrieveImage(mat, view);
-            return mat;
+			uint w = (uint)(view == VIEW.SIDE_BY_SIDE ? 2 * camera.ImageWidth : camera.ImageWidth);
+			uint h = (uint)camera.ImageHeight;
+			MAT_TYPE type = view.GetMatType();
+			mat.Create(w, h, type, MEM.CPU);
+
+			var cb = type.GetChannelAndByts();
+			var c = mat.GetChannels();
+			var p = mat.GetPixelBytes();
+
+			return mat;
+		}
+		private Mat CreateMeasureMaterial(Mat mat, MEASURE measure)
+		{
+			uint w = (uint)camera.ImageWidth;
+			uint h = (uint)camera.ImageHeight;
+			MAT_TYPE type = measure.GetMatType();
+			mat.Create(w, h, type, MEM.CPU);
+			return mat;
+		}
+
+		public void GetResolution(out int Width, out int Height)
+        {
+			Width = camera.ImageWidth;
+			Height = camera.ImageHeight;
+		}
+
+		public Mat RetrieveImage(Mat mat, VIEW view)
+        {
+			if(mat.MatPtr == IntPtr.Zero)
+			{
+				mat = CreateViewMaterial(mat, view);
+			}
+			else
+            {
+				var cb = view.GetMatType().GetChannelAndByts();		
+				int w = (view == VIEW.SIDE_BY_SIDE ? 2 * camera.ImageWidth : camera.ImageWidth);
+				int h = camera.ImageHeight;
+
+				var c = mat.GetChannels();
+				var p = mat.GetPixelBytes();
+
+
+				if (mat.GetChannels() != cb.channel || mat.GetPixelBytes() != cb.bytes || mat.GetWidth() != w || mat.GetHeight() != h)
+				{
+					mat.Free();
+					mat = CreateViewMaterial(mat, view);
+				}	
+			}
+			var ERR = camera.RetrieveImage(mat, view);
+
+			var c1 = mat.GetChannels();
+			var p1 = mat.GetPixelBytes();
+
+			return mat;
         }
 
-        public ZEDMat RetrieveMeasure(ZEDMat mat, MEASURE measure)
+        public Mat RetrieveMeasure(Mat mat, MEASURE measure)
         {
-            camera.RetrieveMeasure(mat, measure);
+			if (mat.MatPtr == IntPtr.Zero)
+			{
+				mat = CreateMeasureMaterial(mat, measure);
+			}
+			else
+			{
+				var cb = measure.GetMatType().GetChannelAndByts();
+				if (mat.GetChannels() != cb.channel || mat.GetPixelBytes() != cb.bytes || mat.GetWidth() != camera.ImageWidth || mat.GetHeight() != camera.ImageHeight)
+				{
+					mat.Free();
+					mat = CreateMeasureMaterial(mat, measure);
+				}
+			}
+			camera.RetrieveMeasure(mat, measure);
             return mat;
         }
 
@@ -133,10 +197,10 @@ namespace sl
 		{
 			while (lastInitStatus != sl.ERROR_CODE.SUCCESS)
 			{
-				lastInitStatus = camera.Init(ref initParameters);
+				lastInitStatus = camera.Open(ref initParameters);
                 if (lastInitStatus != sl.ERROR_CODE.SUCCESS)
 				{
-					lastInitStatus = camera.Init(ref initParameters);
+					lastInitStatus = camera.Open(ref initParameters);
 					previousInitStatus = lastInitStatus;
 				}
 				Thread.Sleep(300);
@@ -174,12 +238,12 @@ namespace sl
 
 		public void Close()
 		{
-            camera.Destroy();
+            camera.Close();
 		}
 
 		public void TT()
 		{
-			camera.SetCameraSettings();
+			//camera.SetCameraSettings();
 		}
 
         public enum fps
