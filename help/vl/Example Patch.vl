@@ -323,7 +323,7 @@
           </Pad>
           <Pad Id="F7CEhohA8dIP5I5rp7kRTJ" Comment="" Bounds="773,879,220,220" ShowValueBox="true" isIOBox="true" />
           <Pad Id="IBcXRoQfCWnNilF4UBdFpI" Comment="" Bounds="1082,900,220,220" ShowValueBox="true" isIOBox="true" />
-          <Node Bounds="77,670,60,19" Id="OjE0A80efYkOS6sV2p3IWu">
+          <Node Bounds="69,765,60,19" Id="OjE0A80efYkOS6sV2p3IWu">
             <p:NodeReference LastCategoryFullName="OpenCV.ZED" LastSymbolSource="VL.ZEDCam.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="GetImage" />
@@ -332,14 +332,14 @@
             <Pin Id="KR0b7TPmYJfQHueY8rpwfd" Name="View" Kind="InputPin" />
             <Pin Id="CXhZ9B8g2ZEP0dzySpt0DB" Name="Value" Kind="OutputPin" />
           </Node>
-          <Pad Id="MwMuhyInTsJLr8n1F0wECy" Comment="View" Bounds="137,610,149,15" ShowValueBox="true" isIOBox="true" Value="RIGHT">
+          <Pad Id="MwMuhyInTsJLr8n1F0wECy" Comment="View" Bounds="129,705,149,15" ShowValueBox="true" isIOBox="true" Value="RIGHT">
             <p:TypeAnnotation LastCategoryFullName="sl" LastSymbolSource="Stereolabs.zed.dll">
               <Choice Kind="TypeFlag" Name="VIEW" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="CRwcpHp6ND5OFRlV9imVzZ" Comment="" Bounds="85,774,220,220" ShowValueBox="true" isIOBox="true" />
-          <Pad Id="GREj2eHDQSULzaHi9AHKY9" Comment="" Bounds="439,770,220,220" ShowValueBox="true" isIOBox="true" />
-          <Node Bounds="431,658" Id="AmVKOgYG5TBM7TUJklwhv2">
+          <Pad Id="CRwcpHp6ND5OFRlV9imVzZ" Comment="" Bounds="77,869,220,220" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="GREj2eHDQSULzaHi9AHKY9" Comment="" Bounds="431,865,220,220" ShowValueBox="true" isIOBox="true" />
+          <Node Bounds="423,753,25,19" Id="AmVKOgYG5TBM7TUJklwhv2">
             <p:NodeReference LastCategoryFullName="OpenCV.ZED" LastSymbolSource="VL.ZEDCam.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="GetPointCloud" />
@@ -348,7 +348,7 @@
             <Pin Id="G7ukR41cnYyOcVNFyrJsoe" Name="Measure" Kind="InputPin" />
             <Pin Id="J1TD5gQHRSiNnCAhLuXVG9" Name="Value" Kind="OutputPin" />
           </Node>
-          <Pad Id="GuzC36ARrPENPNvmG1nUBx" Comment="Measure" Bounds="519,618,108,15" ShowValueBox="true" isIOBox="true" Value="XYZABGR">
+          <Pad Id="GuzC36ARrPENPNvmG1nUBx" Comment="Measure" Bounds="511,713,108,15" ShowValueBox="true" isIOBox="true" Value="XYZABGR">
             <p:TypeAnnotation LastCategoryFullName="sl" LastSymbolSource="Stereolabs.zed.dll">
               <Choice Kind="TypeFlag" Name="MEASURE" />
             </p:TypeAnnotation>
