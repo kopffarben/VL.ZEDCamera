@@ -250,34 +250,6 @@
               <Choice Kind="TypeFlag" Name="RESOLUTION" />
             </p:TypeAnnotation>
           </Pad>
-          <Node Bounds="100,601,60,19" Id="S7Pv0etwibeL4cPQ4O65gN">
-            <p:NodeReference LastCategoryFullName="OpenCV.ZED" LastSymbolSource="VL.ZEDCam.vl">
-              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-              <Choice Kind="ProcessAppFlag" Name="GetImage" />
-            </p:NodeReference>
-            <Pin Id="Qf0lRbx9dBTPM3aBUDcKzk" Name="Input" Kind="InputPin" />
-            <Pin Id="UyXfMpL0YjEMJ4JPYFRY8K" Name="View" Kind="InputPin" />
-            <Pin Id="UnrAeyiLkPONVsD3FkVRIF" Name="Value" Kind="OutputPin" />
-          </Node>
-          <Pad Id="CF8TKEgUJZvP0MgOoUxxxX" Comment="View" Bounds="159,521,149,15" ShowValueBox="true" isIOBox="true" Value="RIGHT">
-            <p:TypeAnnotation LastCategoryFullName="sl" LastSymbolSource="Stereolabs.zed.dll">
-              <Choice Kind="TypeFlag" Name="VIEW" />
-            </p:TypeAnnotation>
-          </Pad>
-          <Node Bounds="364,627,25,19" Id="RohbBuZeRzIMddolm2zcJ4">
-            <p:NodeReference LastCategoryFullName="OpenCV.ZED" LastSymbolSource="VL.ZEDCam.vl">
-              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-              <Choice Kind="ProcessAppFlag" Name="GetPointCloud" />
-            </p:NodeReference>
-            <Pin Id="L8I5uXQvbhyP1kJJqFuzuB" Name="Input" Kind="InputPin" />
-            <Pin Id="IR1ONyqBbqTNXSFuVfA9FL" Name="Measure" Kind="InputPin" />
-            <Pin Id="GCgm8JIlm71NFkAa9RMU5H" Name="Value" Kind="OutputPin" />
-          </Node>
-          <Pad Id="MYBb0sKWmwhO8CpeYeafzU" Comment="Measure" Bounds="442,593,108,15" ShowValueBox="true" isIOBox="true" Value="XYZABGR">
-            <p:TypeAnnotation LastCategoryFullName="sl" LastSymbolSource="Stereolabs.zed.dll">
-              <Choice Kind="TypeFlag" Name="MEASURE" />
-            </p:TypeAnnotation>
-          </Pad>
           <Pad Id="LjKtcvcExiIMRnZunzPMJT" Comment="Depth" Bounds="758,84,35,35" ShowValueBox="true" isIOBox="true" Value="True">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Boolean" />
@@ -349,10 +321,38 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="G6c8L0iT8fIMxrie6heZ2g" Comment="" Bounds="111,767,220,220" ShowValueBox="true" isIOBox="true" />
-          <Pad Id="GeYlQRPjcO0LS3pKYFlOBX" Comment="" Bounds="404,842,220,220" ShowValueBox="true" isIOBox="true" />
           <Pad Id="F7CEhohA8dIP5I5rp7kRTJ" Comment="" Bounds="773,879,220,220" ShowValueBox="true" isIOBox="true" />
           <Pad Id="IBcXRoQfCWnNilF4UBdFpI" Comment="" Bounds="1082,900,220,220" ShowValueBox="true" isIOBox="true" />
+          <Node Bounds="77,670,60,19" Id="OjE0A80efYkOS6sV2p3IWu">
+            <p:NodeReference LastCategoryFullName="OpenCV.ZED" LastSymbolSource="VL.ZEDCam.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="GetImage" />
+            </p:NodeReference>
+            <Pin Id="ERq79ddd5q3LITKY4mWyrk" Name="Input" Kind="InputPin" />
+            <Pin Id="KR0b7TPmYJfQHueY8rpwfd" Name="View" Kind="InputPin" />
+            <Pin Id="CXhZ9B8g2ZEP0dzySpt0DB" Name="Value" Kind="OutputPin" />
+          </Node>
+          <Pad Id="MwMuhyInTsJLr8n1F0wECy" Comment="View" Bounds="137,610,149,15" ShowValueBox="true" isIOBox="true" Value="RIGHT">
+            <p:TypeAnnotation LastCategoryFullName="sl" LastSymbolSource="Stereolabs.zed.dll">
+              <Choice Kind="TypeFlag" Name="VIEW" />
+            </p:TypeAnnotation>
+          </Pad>
+          <Pad Id="CRwcpHp6ND5OFRlV9imVzZ" Comment="" Bounds="85,774,220,220" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="GREj2eHDQSULzaHi9AHKY9" Comment="" Bounds="439,770,220,220" ShowValueBox="true" isIOBox="true" />
+          <Node Bounds="431,658" Id="AmVKOgYG5TBM7TUJklwhv2">
+            <p:NodeReference LastCategoryFullName="OpenCV.ZED" LastSymbolSource="VL.ZEDCam.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="GetPointCloud" />
+            </p:NodeReference>
+            <Pin Id="SNCOPQyC0K9M3nhxzEfmft" Name="Input" Kind="InputPin" />
+            <Pin Id="G7ukR41cnYyOcVNFyrJsoe" Name="Measure" Kind="InputPin" />
+            <Pin Id="J1TD5gQHRSiNnCAhLuXVG9" Name="Value" Kind="OutputPin" />
+          </Node>
+          <Pad Id="GuzC36ARrPENPNvmG1nUBx" Comment="Measure" Bounds="519,618,108,15" ShowValueBox="true" isIOBox="true" Value="XYZABGR">
+            <p:TypeAnnotation LastCategoryFullName="sl" LastSymbolSource="Stereolabs.zed.dll">
+              <Choice Kind="TypeFlag" Name="MEASURE" />
+            </p:TypeAnnotation>
+          </Pad>
         </Canvas>
         <Patch Id="CeSpNUykYr4MEjdBKV8mIq" Name="Create" />
         <Patch Id="AFWHnnKwDoSMYgwtrogLS8" Name="Update" />
@@ -372,11 +372,7 @@
         <Link Id="NfF6cBubHyqMwYwSJ14ShU" Ids="GHCyR5BAfCnOpb1oFdxfoe,NKSr7N4Fn0iMgYVaHnp8Wq" />
         <Link Id="E7Xk4Yyljf9LYXWWioYEjf" Ids="U2tP2YPTQCvLreI9TBWgtO,PHB99cutA4HLEDVLTDF8AN" />
         <Link Id="U6jbtWOIucmQDERhPF0ePZ" Ids="KjtCFf2SVDRNQQ8l7W9lGX,Vp36o4huDjfMyq3yPvqALi" />
-        <Link Id="HqP05p3IYfZLtfYkp7pvRr" Ids="CF8TKEgUJZvP0MgOoUxxxX,UyXfMpL0YjEMJ4JPYFRY8K" />
-        <Link Id="Itx6lXSawgWMOlUpk2kV1s" Ids="MYBb0sKWmwhO8CpeYeafzU,IR1ONyqBbqTNXSFuVfA9FL" />
         <Link Id="RimJSBzx3H5POOLvg8YB8K" Ids="LjKtcvcExiIMRnZunzPMJT,PoNWn7jirMuO5h9q5LNM6Z" />
-        <Link Id="Bn1GqSCPNlyOLQBkF1ELYk" Ids="L2GeCu3ORBBPc7iRdetYFN,Qf0lRbx9dBTPM3aBUDcKzk" />
-        <Link Id="Hyneu1ZaBryQWQ8ArD7rbR" Ids="L2GeCu3ORBBPc7iRdetYFN,L8I5uXQvbhyP1kJJqFuzuB" />
         <Link Id="JOQNn3LAtWuPaJhQjMEYPf" Ids="RAjRa5DuOKBOQJY1zFDar9,NIhR0comQsPN8l2Iqjxx5T" />
         <Link Id="RBgq9OAvBJLN53QKqrdrLE" Ids="DWk7P8aWGveOnfvIn8g6Aw,UdFiUQmsGE6NfFnZ8Iw4Zj" IsFeedback="true" />
         <Link Id="O5mVcnjPpNhLroJf8fxyTG" Ids="L2GeCu3ORBBPc7iRdetYFN,DWk7P8aWGveOnfvIn8g6Aw" />
@@ -384,14 +380,18 @@
         <Link Id="Omrgd91vNbUNfinvATSs0m" Ids="Hd9ibWuGptPL6Z9LGwnGVL,N6KV5i00Ss5PgJdxjz6yym" IsFeedback="true" />
         <Link Id="HIo93DXlM1hQNAqaEW4eT1" Ids="DKq8q696VPMPw4HoqIM4ql,N6KV5i00Ss5PgJdxjz6yym" />
         <Link Id="J3ShHEPTYP1PKwAIWn3ti9" Ids="EgZfXwIbuXdK96Q4lpXUZN,G5WIzOx089oPA9m1708vUL" />
-        <Link Id="DYCFR54aK9JN8NGHTLYNG2" Ids="UnrAeyiLkPONVsD3FkVRIF,G6c8L0iT8fIMxrie6heZ2g" />
-        <Link Id="BW5iAqMkwZfMJWxCQ0focx" Ids="GCgm8JIlm71NFkAa9RMU5H,GeYlQRPjcO0LS3pKYFlOBX" />
         <Link Id="BUbl2IMAOBSLUCTBa7zPn3" Ids="N6KV5i00Ss5PgJdxjz6yym,F7CEhohA8dIP5I5rp7kRTJ" />
         <Link Id="G70S6OkTz6HNgVKCxXHEoq" Ids="DWk7P8aWGveOnfvIn8g6Aw,R2mUjdLyZfnNdc6PHLhHSX" />
         <Link Id="FAMb7Tyh3B1PsKNOuhenP8" Ids="A3O1xspI94zMP527ZSPCDK,FJy1Rh3g2WPOLSasN7oFFl" IsFeedback="true" />
         <Link Id="Lk2si6295G2LfM4DTLfMIu" Ids="GYi3udYg5e7QLZ8MDeL3r3,FJy1Rh3g2WPOLSasN7oFFl" />
         <Link Id="P4jfFB2rws9Qd1Rcxxj7wc" Ids="FJy1Rh3g2WPOLSasN7oFFl,IBcXRoQfCWnNilF4UBdFpI" />
         <Link Id="AKvYGhNIwGfOdiYYLVCR73" Ids="TR44HlwMuoYMAPJGArfhni,FioMJUi7ua9MuBMqmqxYud" />
+        <Link Id="N7H7XSTTOalLEvNyZRASky" Ids="MwMuhyInTsJLr8n1F0wECy,KR0b7TPmYJfQHueY8rpwfd" />
+        <Link Id="COYiRM1Ms1ZNhsxBVDAd5F" Ids="L2GeCu3ORBBPc7iRdetYFN,ERq79ddd5q3LITKY4mWyrk" />
+        <Link Id="DQUa4xl91AsNEcHCO4Rtx4" Ids="CXhZ9B8g2ZEP0dzySpt0DB,CRwcpHp6ND5OFRlV9imVzZ" />
+        <Link Id="FfN9FFabIJWPMdT9HnFIiD" Ids="J1TD5gQHRSiNnCAhLuXVG9,GREj2eHDQSULzaHi9AHKY9" />
+        <Link Id="PfldBbxVmccLgKQgoiswQM" Ids="GuzC36ARrPENPNvmG1nUBx,G7ukR41cnYyOcVNFyrJsoe" />
+        <Link Id="JSS6lADDqBMNCbtO38hVEO" Ids="L2GeCu3ORBBPc7iRdetYFN,SNCOPQyC0K9M3nhxzEfmft" />
       </Patch>
     </Node>
   </Patch>
